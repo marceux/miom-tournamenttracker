@@ -305,24 +305,29 @@ $(document).ready(function($) {
 		});
 
 		//Event Listener for .tournamentAccept click
-		editCell.on('click', '.tournamentAccept', function(event) {
+		$tournament.on('click', '.tournamentEdit .tournamentAccept', function(event) {
 			event.preventDefault();
 
 			//Create empty tournament object to send to server
-			var updatedtournament;
+			var updatedTournament = {};
 
 			//Set values for updated fields
-			var newName = newRow.find('.tournamentName .tournamentField').val();
-			var newSeed = newRow.find('.tournamentSeed .tournamentField').val();
+			updatedTournament.tournamentDate = $tournament.find('.tournamentDate .tournamentField').val();
+			updatedTournament.tournamentName = $tournament.find('.tournamentName .tournamentField').val();
+			updatedTournament.tournamentStream = $tournament.find('.tournamentStream .tournamentField').val();
+			updatedTournament.tournamentLocation = $tournament.find('.tournamentLocation .tournamentField').val();
+			updatedTournament.tournamentTO = $tournament.find('.tournamentTO .tournamentField').val();
 
 			//Iterate over all values in the tournamentList
-			for (var i = tournamentList.length - 1; i >= 0; i--) {
+			for (var i = tournaments.length - 1; i >= 0; i--) {
 				//If name data is the same as the tournamentList name
-				if (newRow.data('name') == tournamentList[i].name) {
+				if ($tournament.data('name') == tournaments[i].name) {
 					//Update tournament object at index i
-					tournamentList[i].name = newName;
-					tournamentList[i].seed = newSeed;
-					updatedtournament = tournamentList[i];
+					tournaments[i].tournamentDate = updatedTournament.tournamentDate;
+					tournaments[i].tournamentName = updatedTournament.tournamentName;
+					tournaments[i].tournamentStream = updatedTournament.tournamentStream;
+					tournaments[i].tournamentLocation = updatedTournament.tournamentLocation;
+					tournaments[i].tournamentTO = updatedTournament.tournamentTO;
 
 					//Break iterator
 					break;
@@ -330,11 +335,14 @@ $(document).ready(function($) {
 			};
 
 			//Change data attributes for row
-			newRow.attr('data-name', newName);
-			newRow.attr('data-seed', newSeed);
+			$tournament.attr('data-date', updatedTournament.tournamentDate);
+			$tournament.attr('data-name', updatedTournament.tournamentName);
+			$tournament.attr('data-stream', updatedTournament.tournamentStream);
+			$tournament.attr('data-location', updatedTournament.tournamentLocation);
+			$tournament.attr('data-to', updatedTournament.tournamentTO);
 
 			//Change labels
-			setLabels(newName, newSeed);
+			//setLabels(newName, newSeed);
 			
 			//End tournament Editing
 			endEdit();
@@ -344,31 +352,31 @@ $(document).ready(function($) {
 		});
 
 		//Event Listener for .tournamentCancel click
-		editCell.on('click', '.tournamentCancel', function(event) {
+		$tournament.on('click', '.tournamentEdit .tournamentCancel', function(event) {
 			event.preventDefault();
 
 			//End tournament Editing
 			endEdit();
 
 			//Set Inputs Back to Original Values
-			setInputs(newRow.data('name'), newRow.data('seed'));
+			//setInputs($tournament.data('name'), $tournament.data('seed'));
 		});
 
 		//Event Listener for .tournamentDel click
-		editCell.on('click', '.tournamentDelete', function(event) {
+		$tournament.on('click', '.tournamentEdit .tournamentDelete', function(event) {
 			event.preventDefault();
 
 			//Create dialogue confirmation for removing tournament
-			if (confirm("Do you want to remove " + newRow.data('name') + " from the event?")) { 
+			if (confirm("Do you want to remove " + $tournament.data('name') + " from the event?")) { 
 				//Remove Row from Table
-				newRow.remove();
+				$tournament.remove();
 
 				//Iterate over all values in the tournamentList
 				for (var i = tournamentList.length - 1; i >= 0; i--) {
 					//If name data is the same as the tournamentList name
-					if (newRow.data('name') == tournamentList[i].name) {
+					if ($tournament.data('name') == tournaments[i].tournamentName) {
 						//Remove from the tournamentList
-						tournamentList.splice(i, 1);
+						tournaments.splice(i, 1);
 						//Break iterator
 						break;
 					}
@@ -377,7 +385,7 @@ $(document).ready(function($) {
   			//Make Ajax call to delete tournament from the Database
 				//deltournament('tournamentID');
 				
-				updatetournamentCount();
+				//updatetournamentCount();
 			}
 		});
 	});
