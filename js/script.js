@@ -1,6 +1,6 @@
 $(document).ready(function($) {
 	
-	//Extended Functions
+	//** Extended Functions
 	
 	//serializeObject
 	$.fn.serializeObject = function() {
@@ -19,12 +19,12 @@ $(document).ready(function($) {
     return o;
 	};
 
-	//Variables
+	//** Variables
 	
-	//array for containing tournament objects
+	//Array - contains tournament objects
 	var tournaments = [];
 
-	//Event Handlers
+	//** Event Handlers
 	
 	//On 'Submit' Click
 	$('#tournamentSubmit').click(function(event) {
@@ -180,15 +180,15 @@ $(document).ready(function($) {
 			$tournament.find('.tournamentTO input').val(tournament.tournamentTO);
 		}
 
-		//Event Handlers
+		//** Event Handlers
 		
-		//Listens for .showTournament click
+		//On .tournamentLabel click
 		$tournament.on('click', '.tournamentLabel', function(event) {
 			event.preventDefault();
 			startEdit();
 		});
 
-		//Event Listener for .tournamentAccept click
+		//On .tournamentAccept click
 		$tournament.on('click', '.tournamentEdit .tournamentAccept', function(event) {
 			event.preventDefault();
 
@@ -274,9 +274,6 @@ $(document).ready(function($) {
 						break;
 					}
 				};
-
-  			//Make Ajax call to delete tournament from the Database
-				//deltournament('tournamentID');
 			}
 		});
 	});
