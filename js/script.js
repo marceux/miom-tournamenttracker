@@ -122,6 +122,17 @@ $(document).ready(function($) {
 		tournamentEl += '</div>';
 		tournamentEl += '</td>';
 
+		//Tournament Edit Cell
+		tournamentEl += '<td class="tournamentEdit">';
+		tournamentEl += '<div class="showTournament">';
+		tournamentEl += '<span class="tournamentDelete"><i class="fa fa-times-circle"></i></span>';
+		tournamentEl += '</div>';
+		tournamentEl += '<div class="editTournament" style="display: none">';
+		tournamentEl += '<span class="tournamentAccept"><i class="fa fa-check"></i></span>';
+		tournamentEl += '<span class="tournamentCancel"><i class="fa fa-times"></i></span>';
+		tournamentEl += '</div>';
+		tournamentEl += '</td>';
+
 		//Close Tournament Row String
 		tournamentEl += '</tr>';
 		
@@ -143,7 +154,7 @@ $(document).ready(function($) {
 
 		//Create tournament object
 		var tournament = $('#tournamentForm').serializeObject();
-		
+
 		//Push tournament object to tournaments array
 		tournaments.push(tournament);
 
@@ -230,6 +241,17 @@ $(document).ready(function($) {
 		tournamentEl += '<input class="tournamentField form-control" type="text" '
 		tournamentEl += 'value="' + tournament.tournamentTO + '"';
 		tournamentEl += '/>';
+		tournamentEl += '</div>';
+		tournamentEl += '</td>';
+
+		//Tournament Edit Cell
+		tournamentEl += '<td class="tournamentEdit">';
+		tournamentEl += '<div class="showTournament">';
+		tournamentEl += '<span class="tournamentDelete"><i class="fa fa-times-circle"></i></span>';
+		tournamentEl += '</div>';
+		tournamentEl += '<div class="editTournament" style="display: none">';
+		tournamentEl += '<span class="tournamentAccept"><i class="fa fa-check"></i></span>';
+		tournamentEl += '<span class="tournamentCancel"><i class="fa fa-times"></i></span>';
 		tournamentEl += '</div>';
 		tournamentEl += '</td>';
 
