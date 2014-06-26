@@ -37,7 +37,18 @@ $(document).ready(function($) {
 		tournaments.push(tournament);
 
 		//Create tournament row
-		var tournamentEl = '<tr class="tournament">';
+		var tournamentEl = '<tr class="tournament" ';
+
+		//Add Data Attributes
+		//tournamentEl += 'data-id="' + tournament.tournament + '" ';
+		tournamentEl += 'data-date="' + tournament.tournamentDate + '" ';
+		tournamentEl += 'data-name="' + tournament.tournamentName + '" ';
+		tournamentEl += 'data-stream="' + tournament.tournamentStream + '" ';
+		tournamentEl += 'data-location="' + tournament.tournamentLocation + '" ';
+		tournamentEl += 'data-to="' + tournament.tournamentTO + '" ';
+
+		//End Opening Element
+		tournamentEl += '>';
 
 		//Tournament Date Cell
 		tournamentEl += '<td class="tournamentDate text-right">';
@@ -115,6 +126,7 @@ $(document).ready(function($) {
 		tournamentEl += '</tr>';
 		
 		//Append Elements
-		$(tournamentEl).appendTo('#tournamentsTable tbody');
+		var $tournament = $(tournamentEl);
+		$tournament.appendTo('#tournamentsTable tbody');
 	});
 });
