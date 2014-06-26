@@ -49,7 +49,9 @@ $(document).ready(function($) {
 		tournamentEl += '</label>';
 		tournamentEl += '</div>';
 		tournamentEl += '<div class="editDate">';
-		tournamentEl += '<input class="dateField" type="date"/>';
+		tournamentEl += '<input class="dateField form-control" type="date" '
+		tournamentEl += 'value="' + tournament.tournamentDate + '"';
+		tournamentEl += '/>';
 		tournamentEl += '</div>';
 		tournamentEl += '</td>';
 		
@@ -61,7 +63,9 @@ $(document).ready(function($) {
 		tournamentEl += '</label>';
 		tournamentEl += '</div>';
 		tournamentEl += '<div class="editName">';
-		tournamentEl += '<input class="nameField" type="text"/>';
+		tournamentEl += '<input class="nameField form-control" type="text" '
+		tournamentEl += 'value="' + tournament.tournamentName + '"';
+		tournamentEl += '/>';
 		tournamentEl += '</div>';
 		tournamentEl += '</td>';
 
@@ -73,7 +77,9 @@ $(document).ready(function($) {
 		tournamentEl += '</label>';
 		tournamentEl += '</div>';
 		tournamentEl += '<div class="editStream">';
-		tournamentEl += '<input class="streamField" type="text"/>';
+		tournamentEl += '<input class="streamField form-control" type="text "'
+		tournamentEl += 'value="' + tournament.tournamentStream + '"';
+		tournamentEl += '/>';
 		tournamentEl += '</div>';
 		tournamentEl += '</td>';
 
@@ -85,7 +91,9 @@ $(document).ready(function($) {
 		tournamentEl += '</label>';
 		tournamentEl += '</div>';
 		tournamentEl += '<div class="editLocation">';
-		tournamentEl += '<input class="locationField" type="text"/>';
+		tournamentEl += '<input class="locationField form-control" type="text" '
+		tournamentEl += 'value="' + tournament.tournamentLocation + '"';
+		tournamentEl += '/>';
 		tournamentEl += '</div>';
 		tournamentEl += '</td>';
 
@@ -97,7 +105,9 @@ $(document).ready(function($) {
 		tournamentEl += '</label>';
 		tournamentEl += '</div>';
 		tournamentEl += '<div class="editTo">';
-		tournamentEl += '<input class="toField" type="text"/>';
+		tournamentEl += '<input class="toField form-control" type="text" '
+		tournamentEl += 'value="' + tournament.tournamentTO + '"';
+		tournamentEl += '/>';
 		tournamentEl += '</div>';
 		tournamentEl += '</td>';
 
