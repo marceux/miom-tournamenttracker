@@ -348,7 +348,7 @@ $(document).ready(function($) {
 			$tournament.attr('data-to', updatedTournament.tournamentTO);
 
 			//Change labels
-			//setLabels(newName, newSeed);
+			setLabels(updatedTournament);
 			
 			//End tournament Editing
 			endEdit();
@@ -361,11 +361,20 @@ $(document).ready(function($) {
 		$tournament.on('click', '.tournamentEdit .tournamentCancel', function(event) {
 			event.preventDefault();
 
+			var defaultTournament = {};
+
+			//Set values for updated fields
+			defaultTournament.tournamentDate = $tournament.find('.tournamentDate .tournamentField').val();
+			defaultTournament.tournamentName = $tournament.find('.tournamentName .tournamentField').val();
+			defaultTournament.tournamentStream = $tournament.find('.tournamentStream .tournamentField').val();
+			defaultTournament.tournamentLocation = $tournament.find('.tournamentLocation .tournamentField').val();
+			defaultTournament.tournamentTO = $tournament.find('.tournamentTO .tournamentField').val();
+
 			//End tournament Editing
 			endEdit();
 
 			//Set Inputs Back to Original Values
-			//setInputs($tournament.data('name'), $tournament.data('seed'));
+			setInputs(defaultTournament);
 		});
 
 		//Event Listener for .tournamentDel click
@@ -390,8 +399,6 @@ $(document).ready(function($) {
 
   			//Make Ajax call to delete tournament from the Database
 				//deltournament('tournamentID');
-				
-				//updatetournamentCount();
 			}
 		});
 	});
