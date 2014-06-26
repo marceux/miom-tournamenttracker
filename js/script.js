@@ -283,17 +283,23 @@ $(document).ready(function($) {
 		/**
 		 * Sets labels text
 		 */
-		function setLabels(name, seed) {
-			//nameCell.find('label').text(name);
-			//seedCell.find('label').text(seed);
+		function setLabels(tournament) {
+			$tournament.find('.tournamentDate label').text(tournament.tournamentDate);
+			$tournament.find('.tournamentName label').text(tournament.tournamentName);
+			$tournament.find('.tournamentStream label').text(tournament.tournamentStream);
+			$tournament.find('.tournamentLocation label').text(tournament.tournamentLocation);
+			$tournament.find('.tournamentTO label').text(tournament.tournamentTO);
 		}
 
 		/**
 		 * Sets input boxes values
 		 */
-		function setInputs(name, seed) {
-			//nameCell.find('input').val(name);
-			//seedCell.find('input').val(seed);
+		function setInputs(tournament) {
+			$tournament.find('.tournamentDate input').val(tournament.tournamentDate);
+			$tournament.find('.tournamentName input').val(tournament.tournamentName);
+			$tournament.find('.tournamentStream input').val(tournament.tournamentStream);
+			$tournament.find('.tournamentLocation input').val(tournament.tournamentLocation);
+			$tournament.find('.tournamentTO input').val(tournament.tournamentTO);
 		}
 
 		//Event Handlers
