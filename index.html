@@ -7,15 +7,13 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Add Tournament Mock-Up</title>
+    <title>Tournament Tracker Mock-Up</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet" type="text/css">
 
     <!-- Fonts -->
     <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href='http://fonts.googleapis.com/css?family=Arimo:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
 
     <!-- Custom Theme CSS -->
     <link href="css/style.css" rel="stylesheet">
@@ -25,7 +23,81 @@
 <body>
 
     <header class="page-header">
+        <div class="container">
+            <h1>Melee it on Me Tournament Tracker</h1>
+        </div>
     </header>
+
+    <div class="page-body">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-lg-4">
+                    <div class="form-wrapper">
+                        <header>
+                            <h2>Add a Tournament</h2>
+                        </header>
+                        <form id="tournamentForm" class="form form-horizontal">
+                            <fieldset class="form-group">
+                                <label class="col-lg-3 control-label">Date</label>
+                                <div class="col-lg-6">
+                                    <input class="form-control" type="date" name="tournamentDate"/>
+                                </div>
+                            </fieldset>
+                            <fieldset class="form-group">
+                                <label class="col-lg-3 control-label">Name</label>
+                                <div class="col-lg-9">
+                                    <input class="form-control" type="text" name="tournamentName"/>
+                                </div>
+                            </fieldset>
+                            <fieldset class="form-group">
+                                <label class="col-lg-3 control-label">Stream</label>
+                                <div class="col-lg-9">
+                                    <input class="form-control" type="text" name="tournamentStream"/>
+                                </div>
+                            </fieldset>
+                            <fieldset class="form-group">
+                                <label class="col-lg-3 control-label">Location</label>
+                                <div class="col-lg-9">
+                                    <input class="form-control" type="text" name="tournamentLocation"/>
+                                </div>
+                            </fieldset>
+                            <fieldset class="form-group">
+                                <label class="col-lg-3 control-label">TO</label>
+                                <div class="col-lg-9">
+                                    <input class="form-control" type="text" name="tournamentTO"/>
+                                </div>
+                            </fieldset>
+                            <fieldset class="form-group">
+                                <div class="pull-right submit-wrapper">
+                                    <button id="tournamentSubmit" class="btn btn-default">Submit Tournament</button>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="col-lg-8">
+                    <div class="tournaments-wrapper">
+                        <table id="tournamentsTable" class="table">
+                            <thead>
+                                <tr>
+                                    <th class="text-center">Date</th>
+                                    <th class="text-center">Name</th>
+                                    <th class="text-center">Stream</th>
+                                    <th class="text-center">Location</th>
+                                    <th class="text-center">TO</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
 
     <footer class="page-footer">
     </footer>
