@@ -41,11 +41,11 @@ $(document).ready(function($) {
 
 		//Add Data Attributes
 		//tournamentEl += 'data-id="' + tournament.tournament + '" ';
-		tournamentEl += 'data-date="' + tournament.tournamentDate + '" ';
-		tournamentEl += 'data-name="' + tournament.tournamentName + '" ';
-		tournamentEl += 'data-stream="' + tournament.tournamentStream + '" ';
-		tournamentEl += 'data-location="' + tournament.tournamentLocation + '" ';
-		tournamentEl += 'data-to="' + tournament.tournamentTO + '" ';
+		tournamentEl += 'data-date="' + tournament.date + '" ';
+		tournamentEl += 'data-name="' + tournament.name + '" ';
+		tournamentEl += 'data-stream="' + tournament.stream + '" ';
+		tournamentEl += 'data-locale="' + tournament.locale + '" ';
+		tournamentEl += 'data-to="' + tournament.to + '" ';
 
 		//End Opening Element
 		tournamentEl += '>';
@@ -54,14 +54,14 @@ $(document).ready(function($) {
 		tournamentEl += '<td class="tournamentDate text-right">';
 		tournamentEl += '<div class="showTournament">';
 		tournamentEl += '<label class="tournamentLabel">';
-		tournamentEl += '<time datetime="' + tournament.tournamentDate + '">';
-		tournamentEl += tournament.tournamentDate;
+		tournamentEl += '<time datetime="' + tournament.date + '">';
+		tournamentEl += tournament.date;
 		tournamentEl += '</time>';
 		tournamentEl += '</label>';
 		tournamentEl += '</div>';
 		tournamentEl += '<div class="editTournament" style="display: none">';
 		tournamentEl += '<input class="tournamentField form-control" type="date" '
-		tournamentEl += 'value="' + tournament.tournamentDate + '"';
+		tournamentEl += 'value="' + tournament.date + '"';
 		tournamentEl += '/>';
 		tournamentEl += '</div>';
 		tournamentEl += '</td>';
@@ -70,12 +70,12 @@ $(document).ready(function($) {
 		tournamentEl += '<td class="tournamentName text-right">';
 		tournamentEl += '<div class="showTournament">';
 		tournamentEl += '<label class="tournamentLabel">';
-		tournamentEl += tournament.tournamentName;
+		tournamentEl += tournament.name;
 		tournamentEl += '</label>';
 		tournamentEl += '</div>';
 		tournamentEl += '<div class="editTournament" style="display: none">';
 		tournamentEl += '<input class="tournamentField form-control" type="text" '
-		tournamentEl += 'value="' + tournament.tournamentName + '"';
+		tournamentEl += 'value="' + tournament.name + '"';
 		tournamentEl += '/>';
 		tournamentEl += '</div>';
 		tournamentEl += '</td>';
@@ -84,12 +84,12 @@ $(document).ready(function($) {
 		tournamentEl += '<td class="tournamentStream text-right">';
 		tournamentEl += '<div class="showTournament">';
 		tournamentEl += '<label class="tournamentLabel">';
-		tournamentEl += tournament.tournamentStream;
+		tournamentEl += tournament.stream;
 		tournamentEl += '</label>';
 		tournamentEl += '</div>';
 		tournamentEl += '<div class="editTournament" style="display: none">';
 		tournamentEl += '<input class="tournamentField form-control" type="text "'
-		tournamentEl += 'value="' + tournament.tournamentStream + '"';
+		tournamentEl += 'value="' + tournament.stream + '"';
 		tournamentEl += '/>';
 		tournamentEl += '</div>';
 		tournamentEl += '</td>';
@@ -98,33 +98,34 @@ $(document).ready(function($) {
 		tournamentEl += '<td class="tournamentLocation text-right">';
 		tournamentEl += '<div class="showTournament">';
 		tournamentEl += '<label class="tournamentLabel">';
-		tournamentEl += tournament.tournamentLocation;
+		tournamentEl += tournament.locale;
 		tournamentEl += '</label>';
 		tournamentEl += '</div>';
 		tournamentEl += '<div class="editTournament" style="display: none">';
 		tournamentEl += '<input class="tournamentField form-control" type="text" '
-		tournamentEl += 'value="' + tournament.tournamentLocation + '"';
+		tournamentEl += 'value="' + tournament.locale + '"';
 		tournamentEl += '/>';
 		tournamentEl += '</div>';
 		tournamentEl += '</td>';
 
 		//Tournament TO Cell
-		tournamentEl += '<td class="tournamentTO text-right">';
+		tournamentEl += '<td class="tournamentTo text-right">';
 		tournamentEl += '<div class="showTournament">';
 		tournamentEl += '<label class="tournamentLabel">';
-		tournamentEl += tournament.tournamentTO;
+		tournamentEl += tournament.to;
 		tournamentEl += '</label>';
 		tournamentEl += '</div>';
 		tournamentEl += '<div class="editTournament" style="display: none">';
 		tournamentEl += '<input class="tournamentField form-control" type="text" '
-		tournamentEl += 'value="' + tournament.tournamentTO + '"';
+		tournamentEl += 'value="' + tournament.to + '"';
 		tournamentEl += '/>';
 		tournamentEl += '</div>';
 		tournamentEl += '</td>';
 
 		//Tournament Edit Cell
-		tournamentEl += '<td class="tournamentEdit">';
+		tournamentEl += '<td class="tournamentCrud">';
 		tournamentEl += '<div class="showTournament">';
+		tournamentEl += '<span class="tournamentEdit"><i class="fa fa-pencil"></i></span>';
 		tournamentEl += '<span class="tournamentDelete"><i class="fa fa-times-circle"></i></span>';
 		tournamentEl += '</div>';
 		tournamentEl += '<div class="editTournament" style="display: none">';
@@ -162,56 +163,63 @@ $(document).ready(function($) {
 		 * Sets labels text
 		 */
 		function setLabels(tournament) {
-			$tournament.find('.tournamentDate label').text(tournament.tournamentDate);
-			$tournament.find('.tournamentName label').text(tournament.tournamentName);
-			$tournament.find('.tournamentStream label').text(tournament.tournamentStream);
-			$tournament.find('.tournamentLocation label').text(tournament.tournamentLocation);
-			$tournament.find('.tournamentTO label').text(tournament.tournamentTO);
+			$tournament.find('.tournamentDate label').text(tournament.date);
+			$tournament.find('.tournamentName label').text(tournament.name);
+			$tournament.find('.tournamentStream label').text(tournament.stream);
+			$tournament.find('.tournamentLocation label').text(tournament.locale);
+			$tournament.find('.tournamentTo label').text(tournament.to);
 		}
 
 		/**
 		 * Sets input boxes values
 		 */
 		function setInputs(tournament) {
-			$tournament.find('.tournamentDate input').val(tournament.tournamentDate);
-			$tournament.find('.tournamentName input').val(tournament.tournamentName);
-			$tournament.find('.tournamentStream input').val(tournament.tournamentStream);
-			$tournament.find('.tournamentLocation input').val(tournament.tournamentLocation);
-			$tournament.find('.tournamentTO input').val(tournament.tournamentTO);
+			$tournament.find('.tournamentDate input').val(tournament.date);
+			$tournament.find('.tournamentName input').val(tournament.name);
+			$tournament.find('.tournamentStream input').val(tournament.stream);
+			$tournament.find('.tournamentLocation input').val(tournament.locale);
+			$tournament.find('.tournamentTo input').val(tournament.to);
+		}
+
+		/**
+		 * Gets input boxes values
+		 */
+		function getValues(tournament, el) {
+			tournament.date = $tournament.find('.tournamentDate ' + el).val();
+			tournament.name = $tournament.find('.tournamentName ' + el).val();
+			tournament.stream = $tournament.find('.tournamentStream ' + el).val();
+			tournament.locale = $tournament.find('.tournamentLocation ' + el).val();
+			tournament.to = $tournament.find('.tournamentTo ' + el).val();
 		}
 
 		//** Event Handlers
 		
 		//On .tournamentLabel click
-		$tournament.on('click', '.tournamentLabel', function(event) {
+		$tournament.on('click', '.tournamentEdit', function(event) {
 			event.preventDefault();
 			startEdit();
 		});
 
 		//On .tournamentAccept click
-		$tournament.on('click', '.tournamentEdit .tournamentAccept', function(event) {
+		$tournament.on('click', '.tournamentAccept', function(event) {
 			event.preventDefault();
 
 			//Create empty tournament object to send to server
-			var updatedTournament = {};
+			var newValues = {};
 
-			//Set values for updated fields
-			updatedTournament.tournamentDate = $tournament.find('.tournamentDate .tournamentField').val();
-			updatedTournament.tournamentName = $tournament.find('.tournamentName .tournamentField').val();
-			updatedTournament.tournamentStream = $tournament.find('.tournamentStream .tournamentField').val();
-			updatedTournament.tournamentLocation = $tournament.find('.tournamentLocation .tournamentField').val();
-			updatedTournament.tournamentTO = $tournament.find('.tournamentTO .tournamentField').val();
+			//Get values from input fields
+			getValues(newValues, 'input');
 
 			//Iterate over all values in the tournamentList
 			for (var i = tournaments.length - 1; i >= 0; i--) {
 				//If name data is the same as the tournamentList name
 				if ($tournament.data('name') == tournaments[i].name) {
 					//Update tournament object at index i
-					tournaments[i].tournamentDate = updatedTournament.tournamentDate;
-					tournaments[i].tournamentName = updatedTournament.tournamentName;
-					tournaments[i].tournamentStream = updatedTournament.tournamentStream;
-					tournaments[i].tournamentLocation = updatedTournament.tournamentLocation;
-					tournaments[i].tournamentTO = updatedTournament.tournamentTO;
+					tournaments[i].date = newValues.date;
+					tournaments[i].name = newValues.name;
+					tournaments[i].stream = newValues.stream;
+					tournaments[i].locale = newValues.locale;
+					tournaments[i].to = newValues.to;
 
 					//Break iterator
 					break;
@@ -219,14 +227,14 @@ $(document).ready(function($) {
 			};
 
 			//Change data attributes for row
-			$tournament.attr('data-date', updatedTournament.tournamentDate);
-			$tournament.attr('data-name', updatedTournament.tournamentName);
-			$tournament.attr('data-stream', updatedTournament.tournamentStream);
-			$tournament.attr('data-location', updatedTournament.tournamentLocation);
-			$tournament.attr('data-to', updatedTournament.tournamentTO);
+			$tournament.attr('data-date', newValues.date);
+			$tournament.attr('data-name', newValues.name);
+			$tournament.attr('data-stream', newValues.stream);
+			$tournament.attr('data-location', newValues.locale);
+			$tournament.attr('data-to', newValues.to);
 
 			//Change labels
-			setLabels(updatedTournament);
+			setLabels(newValues);
 			
 			//End tournament Editing
 			endEdit();
@@ -235,28 +243,24 @@ $(document).ready(function($) {
 			//updtournament(newtournament);
 		});
 
-		//Event Listener for .tournamentCancel click
-		$tournament.on('click', '.tournamentEdit .tournamentCancel', function(event) {
+		//On .tournamentCancel click
+		$tournament.on('click', '.tournamentCancel', function(event) {
 			event.preventDefault();
 
-			var defaultTournament = {};
+			var defaultValues = {};
 
 			//Set values for updated fields
-			defaultTournament.tournamentDate = $tournament.find('.tournamentDate .tournamentField').val();
-			defaultTournament.tournamentName = $tournament.find('.tournamentName .tournamentField').val();
-			defaultTournament.tournamentStream = $tournament.find('.tournamentStream .tournamentField').val();
-			defaultTournament.tournamentLocation = $tournament.find('.tournamentLocation .tournamentField').val();
-			defaultTournament.tournamentTO = $tournament.find('.tournamentTO .tournamentField').val();
+			getValues(defaultValues, 'label');
 
 			//End tournament Editing
 			endEdit();
 
 			//Set Inputs Back to Original Values
-			setInputs(defaultTournament);
+			setInputs(defaultValues);
 		});
 
-		//Event Listener for .tournamentDel click
-		$tournament.on('click', '.tournamentEdit .tournamentDelete', function(event) {
+		//On .tournamentDel click
+		$tournament.on('click', '.tournamentDelete', function(event) {
 			event.preventDefault();
 
 			//Create dialogue confirmation for removing tournament
@@ -267,7 +271,7 @@ $(document).ready(function($) {
 				//Iterate over all values in the tournamentList
 				for (var i = tournamentList.length - 1; i >= 0; i--) {
 					//If name data is the same as the tournamentList name
-					if ($tournament.data('name') == tournaments[i].tournamentName) {
+					if ($tournament.data('name') == tournaments[i].name) {
 						//Remove from the tournamentList
 						tournaments.splice(i, 1);
 						//Break iterator
