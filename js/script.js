@@ -36,17 +36,75 @@ $(document).ready(function($) {
 		//Push tournament object to tournaments array
 		tournaments.push(tournament);
 
-		//Create table row
-		var tournamentEl = '';
+		//Create tournament row
+		var tournamentEl = '<tr class="tournament">';
 
-		tournamentEl += '<tr class="tournament">';
-		tournamentEl += '<td class="tournamentDate text-right"><time datetime="' + tournament.tournamentDate + '">' + tournament.tournamentDate + '</td>';
-		tournamentEl += '<td class="tournamentName text-right">' + tournament.tournamentName + '</td>';
-		tournamentEl += '<td class="tournamentStream text-right">' + tournament.tournamentStream + '</td>';
-		tournamentEl += '<td class="tournamentLocation text-right">' + tournament.tournamentLocation + '</td>';
-		tournamentEl += '<td class="tournamentTO text-right">' + tournament.tournamentTO + '</td>';
+		//Tournament Date Cell
+		tournamentEl += '<td class="tournamentDate text-right">';
+		tournamentEl += '<div class="showDate">';
+		tournamentEl += '<label class="dateLabel">';
+		tournamentEl += '<time datetime="' + tournament.tournamentDate + '">';
+		tournamentEl += tournament.tournamentDate;
+		tournamentEl += '</time>';
+		tournamentEl += '</label>';
+		tournamentEl += '</div>';
+		tournamentEl += '<div class="editDate">';
+		tournamentEl += '<input class="dateField" type="date"/>';
+		tournamentEl += '</div>';
+		tournamentEl += '</td>';
+		
+		//Tournament Name Cell
+		tournamentEl += '<td class="tournamentName text-right">';
+		tournamentEl += '<div class="showName">';
+		tournamentEl += '<label class="nameLabel">';
+		tournamentEl += tournament.tournamentName;
+		tournamentEl += '</label>';
+		tournamentEl += '</div>';
+		tournamentEl += '<div class="editName">';
+		tournamentEl += '<input class="nameField" type="text"/>';
+		tournamentEl += '</div>';
+		tournamentEl += '</td>';
+
+		//Tournament Stream Cell
+		tournamentEl += '<td class="tournamentStream text-right">';
+		tournamentEl += '<div class="showStream">';
+		tournamentEl += '<label class="streamLabel">';
+		tournamentEl += tournament.tournamentStream;
+		tournamentEl += '</label>';
+		tournamentEl += '</div>';
+		tournamentEl += '<div class="editStream">';
+		tournamentEl += '<input class="streamField" type="text"/>';
+		tournamentEl += '</div>';
+		tournamentEl += '</td>';
+
+		//Tournament Location Cell
+		tournamentEl += '<td class="tournamentLocation text-right">';
+		tournamentEl += '<div class="showLocation">';
+		tournamentEl += '<label class="locationLabel">';
+		tournamentEl += tournament.tournamentLocation;
+		tournamentEl += '</label>';
+		tournamentEl += '</div>';
+		tournamentEl += '<div class="editLocation">';
+		tournamentEl += '<input class="locationField" type="text"/>';
+		tournamentEl += '</div>';
+		tournamentEl += '</td>';
+
+		//Tournament TO Cell
+		tournamentEl += '<td class="tournamentTO text-right">';
+		tournamentEl += '<div class="showTo">';
+		tournamentEl += '<label class="toLabel">';
+		tournamentEl += tournament.tournamentTO;
+		tournamentEl += '</label>';
+		tournamentEl += '</div>';
+		tournamentEl += '<div class="editTo">';
+		tournamentEl += '<input class="toField" type="text"/>';
+		tournamentEl += '</div>';
+		tournamentEl += '</td>';
+
+		//Close Tournament Row String
 		tournamentEl += '</tr>';
 		
+		//Append Elements
 		$(tournamentEl).appendTo('#tournamentsTable tbody');
 	});
 });
