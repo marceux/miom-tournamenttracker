@@ -52,14 +52,14 @@ $(document).ready(function($) {
 
 		//Tournament Date Cell
 		tournamentEl += '<td class="tournamentDate text-right">';
-		tournamentEl += '<div class="showDate">';
+		tournamentEl += '<div class="showTournament">';
 		tournamentEl += '<label class="dateLabel">';
 		tournamentEl += '<time datetime="' + tournament.tournamentDate + '">';
 		tournamentEl += tournament.tournamentDate;
 		tournamentEl += '</time>';
 		tournamentEl += '</label>';
 		tournamentEl += '</div>';
-		tournamentEl += '<div class="editDate">';
+		tournamentEl += '<div class="editTournament" style="display: none">';
 		tournamentEl += '<input class="dateField form-control" type="date" '
 		tournamentEl += 'value="' + tournament.tournamentDate + '"';
 		tournamentEl += '/>';
@@ -68,12 +68,12 @@ $(document).ready(function($) {
 		
 		//Tournament Name Cell
 		tournamentEl += '<td class="tournamentName text-right">';
-		tournamentEl += '<div class="showName">';
+		tournamentEl += '<div class="showTournament">';
 		tournamentEl += '<label class="nameLabel">';
 		tournamentEl += tournament.tournamentName;
 		tournamentEl += '</label>';
 		tournamentEl += '</div>';
-		tournamentEl += '<div class="editName">';
+		tournamentEl += '<div class="editTournament" style="display: none">';
 		tournamentEl += '<input class="nameField form-control" type="text" '
 		tournamentEl += 'value="' + tournament.tournamentName + '"';
 		tournamentEl += '/>';
@@ -82,12 +82,12 @@ $(document).ready(function($) {
 
 		//Tournament Stream Cell
 		tournamentEl += '<td class="tournamentStream text-right">';
-		tournamentEl += '<div class="showStream">';
+		tournamentEl += '<div class="showTournament">';
 		tournamentEl += '<label class="streamLabel">';
 		tournamentEl += tournament.tournamentStream;
 		tournamentEl += '</label>';
 		tournamentEl += '</div>';
-		tournamentEl += '<div class="editStream">';
+		tournamentEl += '<div class="editTournament" style="display: none">';
 		tournamentEl += '<input class="streamField form-control" type="text "'
 		tournamentEl += 'value="' + tournament.tournamentStream + '"';
 		tournamentEl += '/>';
@@ -96,12 +96,12 @@ $(document).ready(function($) {
 
 		//Tournament Location Cell
 		tournamentEl += '<td class="tournamentLocation text-right">';
-		tournamentEl += '<div class="showLocation">';
+		tournamentEl += '<div class="showTournament">';
 		tournamentEl += '<label class="locationLabel">';
 		tournamentEl += tournament.tournamentLocation;
 		tournamentEl += '</label>';
 		tournamentEl += '</div>';
-		tournamentEl += '<div class="editLocation">';
+		tournamentEl += '<div class="editTournament" style="display: none">';
 		tournamentEl += '<input class="locationField form-control" type="text" '
 		tournamentEl += 'value="' + tournament.tournamentLocation + '"';
 		tournamentEl += '/>';
@@ -110,12 +110,12 @@ $(document).ready(function($) {
 
 		//Tournament TO Cell
 		tournamentEl += '<td class="tournamentTO text-right">';
-		tournamentEl += '<div class="showTo">';
+		tournamentEl += '<div class="showTournament">';
 		tournamentEl += '<label class="toLabel">';
 		tournamentEl += tournament.tournamentTO;
 		tournamentEl += '</label>';
 		tournamentEl += '</div>';
-		tournamentEl += '<div class="editTo">';
+		tournamentEl += '<div class="editTournament" style="display: none">';
 		tournamentEl += '<input class="toField form-control" type="text" '
 		tournamentEl += 'value="' + tournament.tournamentTO + '"';
 		tournamentEl += '/>';
